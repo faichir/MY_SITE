@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="output.css" rel="stylesheet">
+</head>
+<section>
+    <nav
+      class="fixed top-0 left-0 w-full flex items-center justify-between p-5 bg-black text-white z-50"
+    >
+      <div class="text-lg font-bold">Infospace</div>
+      <button id="hamburger" class="text-3xl focus:outline-none">
+        <span id="hamburger-icon">&#9776;</span>
+        <span id="close-icon" class="hidden">&times;</span>
+      </button>
+    </nav>
+  
+    <div
+      id="menu"
+      class="fixed top-0 right-0 w-full h-full bg-black text-white flex flex-col items-center justify-center transform translate-x-full transition-transform duration-300 z-40"
+    >
+      <button
+        id="close"
+        class="absolute top-5 left-5 text-3xl focus:outline-none"
+      >
+        &times;
+      </button>
+      <ul class="text-center space-y-8">
+        <li><a href="#" class="text-2xl">Home</a></li>
+        <li><a href="#" class="text-2xl">About</a></li>
+        <li><a href="#" class="text-2xl">Services</a></li>
+        <li><a href="#" class="text-2xl">Contact</a></li>
+      </ul>
+    </div>
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const menu = document.getElementById("menu");
+      const close = document.getElementById("close");
+      const hamburgerIcon = document.getElementById("hamburger-icon");
+      const closeIcon = document.getElementById("close-icon");
+  
+      hamburger.addEventListener("click", () => {
+        if (menu.classList.contains("translate-x-full")) {
+          menu.classList.remove("translate-x-full");
+          menu.classList.add("translate-x-0");
+          hamburgerIcon.classList.add("hidden");
+          closeIcon.classList.remove("hidden");
+        } else {
+          menu.classList.remove("translate-x-0");
+          menu.classList.add("translate-x-full");
+          hamburgerIcon.classList.remove("hidden");
+          closeIcon.classList.add("hidden");
+        }
+      });
+  
+      close.addEventListener("click", () => {
+        menu.classList.remove("translate-x-0");
+        menu.classList.add("translate-x-full");
+        hamburgerIcon.classList.remove("hidden");
+        closeIcon.classList.add("hidden");
+      });
+    </script>
+  </section>
+</html>
